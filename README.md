@@ -318,9 +318,38 @@ Ctrl+D
 ![Ejercicio](https://github.com/Carlos9909-Web/libro-git/blob/main/img/gestion%20de%20ramas/Ejercicio%205.png)
 ## Ejercicios de repositorios remotos
 ### Ejercicio 1
+* Crear un nuevo repositorio público en GitHub con el nombre libro-git.
+* Añadirlo al repositorio local del libro.
+* Mostrar todos los repositorios remotos configurados.
+```
+ Crear el repositorio en GitHub y copiar su url con protocolo https.
+> git remote add github url
+> git remote -v
+```
 ![Ejercicio](https://github.com/Carlos9909-Web/libro-git/blob/main/img/repositorios%20remotos/Ejercicio%201.png)
 ### Ejercicio 2
+* Añadir los cambios del repositorio local al repositorio remoto de GitHub.
+* Acceder a GitHub y comprobar que se han subido los cambios mostrando el historial de versiones.
+```
+>git push github master
+```
 ![Ejercicio](https://github.com/Carlos9909-Web/libro-git/blob/main/img/repositorios%20remotos/Ejercicio%202.png)
 ### Ejercicio 3
+* Colaborar en el repositorio remoto libro-git de otro usuario.
+* Clonar su repositorio libro-git.
+* Añadir el fichero autores.txt que contenga el nombre del usuario y su correo electrónico.
+* Añadir los cambios a la zona de intercambio temporal.
+* Hacer un commit con el mensaje “Añadido autor.”
+* Subir los cambios al repositorio remoto.
+```
+# Entrar en GigHub en el proyecto libro-git del que seamos colaboradores y copiar la url.
+> git clone url
+> cat > autores.txt
+# Escribir el nombre del autor y su correo.
+Ctrl+D
+> git add .
+> git commit -m "Añadido autor."
+> git push origin master.
+```
 ![Ejercicio](https://github.com/Carlos9909-Web/libro-git/blob/main/img/repositorios%20remotos/Ejercicio%203.png)
 ### Ejercicio 4
