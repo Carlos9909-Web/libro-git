@@ -4,8 +4,8 @@
 ### Ejercicio 1
 Configurar Git definiendo el nombre del usuario, el correo electrónico y activar el coloreado de la salida. Mostrar la configuración final.
 ```
-git config --global user.name "Your-Full-Name"
-git config --global user.email "your-email-address"
+git config --global user.name "Carlos Gonzalez"
+git config --global user.email "cegc.1999@gmail.com"
 git config --global color.ui auto
 git config --list
 ```
@@ -13,10 +13,8 @@ git config --list
 ### Ejercicio 2
 Crear un repositorio nuevo con el nombre **libro** y mostrar su contenido.
 ```
-> mkdir libro
-> cd libro
+//crear carpeta libro y en linea de comandos posicionarnos en la carpeta
 > git init
-> ls -la
 ```
 ![Ejercicio](https://github.com/Carlos9909-Web/libro-git/blob/main/img/creacion%20y%20actualizacion%20de%20repositorios/Ejercicio%202.png)
 ### Ejercicio 3
@@ -32,11 +30,7 @@ Capítulo 3: Repositorios remotos
 * Volver a comprobar una vez más el estado del repositorio
 ```
 > git status
-> cat > indice.txt
-Capítulo 1: Introducción a Git
-Capítulo 2: Flujo de trabajo básico
-Capítulo 3: Repositorios remotos
-Ctrl+D
+//Crear indice.txt y capturar el contenido
 > git status
 > git add indice.txt
 > git status
@@ -59,11 +53,22 @@ Capítulo 4: Repositorios remotos
 ```
 * Mostrar los cambios con respecto a la última versión guardada en el repositorio.
 * Hacer un commit de los cambios con el mensaje “Añadido capítulo 3 sobre gestión de ramas”.
+```
+//Agregar  el contenido al fichero
+> git diff
+> git add indice.txt
+> git commit -m "Añadido capítulo 3 sobre gestión de ramas"
+```
 ![Ejercicio](https://github.com/Carlos9909-Web/libro-git/blob/main/img/creacion%20y%20actualizacion%20de%20repositorios/Ejercicio%205.png)
 ### Ejercicio 6
 * Mostrar los cambios de la última versión del repositorio con respecto a la anterior.
 * Cambiar el mensaje del último commit por “Añadido capítulo 3 sobre gestión de ramas al índice.”
 * Volver a mostrar los últimos cambios del repositorio.
+```
+> git show
+> git commit --amend -m "Añadido capítulo 3 sobre gestión de ramas al índice."
+> git show
+```
 ![Ejercicio](https://github.com/Carlos9909-Web/libro-git/blob/main/img/creacion%20y%20actualizacion%20de%20repositorios/Ejercicio%206.png)
 ## Ejercicios de manejo del historial de cambios
 ### Ejercicio 1
@@ -77,10 +82,7 @@ Git es un sistema de control de versiones ideado por Linus Torvalds.
 * Volver a mostrar el historial de cambios del repositorio.
 ```
 > git log
-> mkdir capitulos
-> cat > capitulos/capitulo1.txt
-Git es un sistema de control de versiones ideado por Linus Torvalds.
-Ctrl+D
+//Crear carpeta capitulos y el fichero y agregar el contenido
 > git add .
 > git commit -m "Añadido capítulo 1."
 > git log
@@ -94,6 +96,12 @@ El flujo de trabajo básico con Git consiste en: 1- Hacer cambios en el reposito
 * Añadir los cambios a la zona de intercambio temporal.
 * Hacer un commit de los cambios con el mensaje “Añadido capítulo 2.”
 * Mostrar las diferencias entre la última versión y dos versiones anteriores.
+```
+//Agregar fichero y contenido
+> git add .
+> git commit -m "Añadido capítulo 2."
+> git diff HEAD2 HEAD
+```
 ![Ejercicio](https://github.com/Carlos9909-Web/libro-git/blob/main/img/manejo%20del%20historial%20de%20cambios/Ejercicio%202.png)
 ### Ejercicio 3
 * Crear el fichero capitulo3.txt en la carpeta capitulos con el siguiente texto.
@@ -104,13 +112,11 @@ Git permite la creación de ramas lo que permite tener distintas versiones del m
 * Hacer un commit de los cambios con el mensaje “Añadido capítulo 3.”
 * Mostrar las diferencias entre la primera y la última versión del repositorio.
 ```
-> cat > capitulos/capitulo3.txt
-Git permite la creación de ramas lo que permite tener distintas versiones del mismo proyecto y trabajar de manera simultanea en ellas.
-Ctrl+D
+//Crear fichero y agregar contenido
 > git add .
 > git commit -m "Añadido capítulo 3."
-> git log
-> git diff &lt;codigo hash de la primera version>..HEAD
+> git log -oneline
+> git diff HEAD2 HEAD
 ```
 ![Ejercicio](https://github.com/Carlos9909-Web/libro-git/blob/main/img/manejo%20del%20historial%20de%20cambios/Ejercicio%203.png)
 ### Ejercicio 4
@@ -122,7 +128,7 @@ Capítulo 5: Conceptos avanzados
 * Hacer un commit de los cambios con el mensaje “Añadido capítulo 5 al índice.”.
 * Mostrar quién ha hecho cambios sobre el fichero indice.txt.
 ```
-> echo "Capítulo 5: Conceptos avanzados" >> indice.txt
+//Modificar el fichero
 > git add .
 > git commit -m "Añadido capítulo 5 al índice."
 > git annotate indice.txt
@@ -135,8 +141,7 @@ Capítulo 5: Conceptos avanzados
 * Deshacer los cambios realizados en el fichero indice.txt para volver a la versión anterior del fichero.
 * Volver a comprobar el estado del repositorio.
 ```
-> nano indice.txt
-# Eliminar la última línea y guardar el fichero.
+//Eliminar la última línea y guardar el fichero.
 > git status
 > git checkout -- indice.txt
 > git status
@@ -151,8 +156,7 @@ Capítulo 5: Conceptos avanzados
 * Deshacer los cambios realizados en el fichero indice.txt para volver a la versión anterior del fichero.
 * Volver a comprobar el estado del repositorio.
 ```
-> nano indice.txt
-# Eliminar la última línea y guardar el fichero.
+//Eliminar la última línea y guardar el fichero.
 > git add .
 > git status
 > git reset indice.txt
@@ -172,10 +176,8 @@ Capítulo 5: Conceptos avanzados
 * Deshacer los cambios realizados para volver a la versión del repositorio.
 * Volver a comprobar el estado del repositorio.
 ```
-> nano indice.txt
-# Eliminar la última línea y guardar el fichero.
-> rm capitulos/capitulo3.txt
-> touch capitulos/capitulo4.txt
+//Eliminar la última línea y guardar el fichero.
+//Eliminar fichero cap3 y añadir cap4
 > git add .
 > git status
 > git reset
@@ -197,18 +199,17 @@ Capítulo 5: Conceptos avanzados
 * Deshacer el último commit y los cambios anteriores del directorio de trabajo volviendo a la versión anterior del repositorio.
 * Comprobar de nuevo el historial y el estado del repositorio.
 ```
-> nano indice.txt
-# Eliminar la última línea y guardar el fichero.
-> rm capitulos/capitulo3.txt
+//Eliminar la última línea y guardar el fichero.
+//Eliminar el fichero capitulo3.txt
 > git commit -a "Borrado accidental."
 > git status
 > git log
-> git reset --soft HEAD~1
+> git reset --soft HEAD1
 > git status
 > git commit -m "Borrado accidental."
 > git status
 > git log
-> git reset --hard HEAD~1
+> git reset --hard HEAD1
 > git log
 > git status
 ```
@@ -230,9 +231,7 @@ En este capítulo veremos cómo usar GitHub para alojar repositorios en remoto.
 * Hacer un commit con el mensaje “Añadido capítulo 4.”
 * Mostrar la historia del repositorio incluyendo todas las ramas.
 ```
-> cat > capitulos/capitulo4.txt
-En este capítulo veremos cómo usar GitHub para alojar repositorios en remoto.
-Ctrl+D
+//Crear capitulo4.txt
 > git add .
 > git commit -m "Añadido capítulo 4."
 > git log --graph --all --oneline
@@ -249,9 +248,7 @@ Chacon, S. and Straub, B. Pro Git. Apress.
 * Mostrar la historia del repositorio incluyendo todas las ramas.
 ```
 > git checkout bibliografia
-> cat > bibliografia.txt
-- Chacon, S. and Straub, B. Pro Git. Apress.
-Ctrl+D
+//Crear bibliografia.txt
 > git add .
 > git commit -m "Añadida primera referencia bibliográfica."
 > git log --graph --all --oneline
@@ -298,20 +295,13 @@ Hodson, R. Ry’s Git Tutorial. Smashwords (2014)
 ```
 > git branch bibliografia
 > git checkout bibliografia
-> cat > bibliografia.txt
-- Scott Chacon and Ben Straub. Pro Git. Apress.
-- Ryan Hodson. Ry's Git Tutorial. Smashwords (2014)
-Ctrl+D
+//Añadir info al fichero
 > git commit -a -m "Añadida nueva referencia bibliográfica."
 > git checkout master
-> cat > bibliografia.txt
-- Chacon, S. and Straub, B. Pro Git. Apress.
-- Loeliger, J. and McCullough, M. Version control with Git. O'Reilly.
-Ctrl+D
+//Añadir info al fichero
 > git commit -a -m "Añadida nueva referencia bibliográfica."
 > git merge bibliografia
-> git nano bibliografia
-# Hacer los cambios indicados en el fichero
+//Hacer los cambios indicados en el fichero
 > git commit -a -m "Solucionado conflicto bibliografía."
 > git log --graph --all --oneline
 ```
@@ -331,7 +321,7 @@ Ctrl+D
 * Añadir los cambios del repositorio local al repositorio remoto de GitHub.
 * Acceder a GitHub y comprobar que se han subido los cambios mostrando el historial de versiones.
 ```
->git push github master
+>git push origin master
 ```
 ![Ejercicio](https://github.com/Carlos9909-Web/libro-git/blob/main/img/repositorios%20remotos/Ejercicio%202.png)
 ### Ejercicio 3
@@ -344,9 +334,7 @@ Ctrl+D
 ```
 # Entrar en GigHub en el proyecto libro-git del que seamos colaboradores y copiar la url.
 > git clone url
-> cat > autores.txt
-# Escribir el nombre del autor y su correo.
-Ctrl+D
+//Crear archivo y agregar informacion
 > git add .
 > git commit -m "Añadido autor."
 > git push origin master.
